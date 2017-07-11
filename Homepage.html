@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<title>Home Page</title>
+	<style type="text/css">
+		
+	</style>
+</head>
+<body>
+	<h2 id="time"> 00:00:00 </h2>
+	<h1 id="moment">AM</h1>
+
+	<script>
+		function mytime(){
+			var time = new Date();
+			var stime = time.toString(); //将time转换为字符串
+			var	sstime = stime.slice(15,24); //取时间
+			document.getElementById('time').innerHTML=sstime;
+		}
+		setInterval(mytime,1000); //每1000ms执行一次函数
+		if (time>12) {
+			var moment = 'PM';
+			document.getElementById('moment').innerHTML=moment;
+		}
+	</script>
+</body>
+</html>
