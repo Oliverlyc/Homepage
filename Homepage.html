@@ -3,24 +3,105 @@
 <head><meta charset="utf-8">
 	<title>Home Page</title>
 	<style type="text/css">
-		
+		html{
+			height: 100%;
+		}
+		body{
+			height: 100%;
+			margin: 0px;
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+		}
+		h1,h2{
+			display: inline;
+		}
+		.bg-wrapper{
+			background-position: center center; /*居中图片*/
+			height: 100%;
+			background-size: cover; /*让图片适应窗口*/
+			background-image: url(./images/3.jpg); 
+		}
+		.center{
+			display: inline;
+			text-align: center;
+			width: 100%;
+			position: absolute;
+			top: 40%;
+			color: white;
+		}
+		#time{
+			display: inline;
+			font-size: 1100%;
+			font-weight: 500;
+			padding:0px ;
+			margin: 0;
+		}
+		#greeting{
+			font-size: 400%;
+			font-weight: 400;
+			margin: 0;
+			padding: 0;
+		}
+		.timer{
+			display: block;
+			line-height: 1;
+		}
+		#ampm{
+			font-size:300%;
+		}
+		.i:before{
+
+		}
+		.search-submit{
+			display: none;
+		}
 	</style>
 </head>
 <body>
-	<h2 id="time"> 00:00:00 </h2>
-	<h1 id="moment">AM</h1>
-
+	<div class="bg-wrapper">
+		<div class="search-form">
+			<form name="" id="form">
+				<i class="icon-search"></i>
+				<input type="text" id="search-input" value="">
+				<input type="submit" id="search-submit" value="">
+			</form>
+		</div>
+		<div class="center">
+			<div class="timer">
+				<h2 id="time"></h2>
+				<h1 id="ampm"></h1>
+			</div>
+				<h3 id="greeting"></h3>
+		</div>	
+	</div>
 	<script>
 		function mytime(){
-			var time = new Date();
+			time = new Date();
 			var stime = time.toString(); //将time转换为字符串
-			var	sstime = stime.slice(15,24); //取时间
+			var	sstime = stime.slice(15,21); //取时间
 			document.getElementById('time').innerHTML=sstime;
 		}
 		setInterval(mytime,1000); //每1000ms执行一次函数
-		if (time>12) {
-			var moment = 'PM';
-			document.getElementById('moment').innerHTML=moment;
+		time = new Date();
+		if (time.getHours()>18) {
+			document.getElementById('ampm').innerHTML="PM";
+			document.getElementById('greeting').innerHTML="Good evening, Oliver.";
+		}
+		else if(time.getHours()<18&time.getHours()>12){
+			document.getElementById('ampm').innerHTML="PM";
+			document.getElementById('greeting').innerHTML="Good afternoon, Oliver.";
+		}
+		else{
+			document.getElementById('ampm').innerHTML="AM";
+			document.getElementById('greeting').innerHTML="Good morning, Oliver.";
+		}
+		var searchform = document.getElementById('form');
+		var searchinput = document.getElementById('search-input');
+		var searchsub = document.getElementById('search-submit');
+		searchform.onsubmit = function (){
+			var vl = searchform.value;
+			window.open("http://www.baidu.com/s?wd=" + vl);
+			return false;
 		}
 	</script>
 </body>
