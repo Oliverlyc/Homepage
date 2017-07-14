@@ -52,8 +52,12 @@
 		.i:before{
 
 		}
-		.search-submit{
+		.sub{
 			display: none;
+			padding: 0px;
+			width: 0px;
+			border: 0px;
+
 		}
 	</style>
 </head>
@@ -62,8 +66,8 @@
 		<div class="search-form">
 			<form name="" id="form">
 				<i class="icon-search"></i>
-				<input type="text" id="search-input" value="">
-				<input type="submit" id="search-submit" value="">
+				<input type="text" id="text" value="">
+				<!-- <input type="submit" id="sub" value=""> -->
 			</form>
 		</div>
 		<div class="center">
@@ -87,7 +91,7 @@
 			document.getElementById('ampm').innerHTML="PM";
 			document.getElementById('greeting').innerHTML="Good evening, Oliver.";
 		}
-		else if(time.getHours()<18&time.getHours()>12){
+		else if(time.getHours()<18&time.getHours()>=12){
 			document.getElementById('ampm').innerHTML="PM";
 			document.getElementById('greeting').innerHTML="Good afternoon, Oliver.";
 		}
@@ -96,13 +100,14 @@
 			document.getElementById('greeting').innerHTML="Good morning, Oliver.";
 		}
 		var searchform = document.getElementById('form');
-		var searchinput = document.getElementById('search-input');
-		var searchsub = document.getElementById('search-submit');
+		var text = document.getElementById('text');
+		var searchsub = document.getElementById('sub');
 		searchform.onsubmit = function (){
-			var vl = searchform.value;
+			var vl = text.value;
 			window.open("http://www.baidu.com/s?wd=" + vl);
 			return false;
-		}
+		}//提交表单数据到Baidu
+		
 	</script>
 </body>
 </html>
