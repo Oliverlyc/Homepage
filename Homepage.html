@@ -22,11 +22,10 @@
 			background-image: url(./images/3.jpg); 
 		}
 		.center{
-			display: inline;
 			text-align: center;
 			width: 100%;
-			position: absolute;
-			top: 40%;
+			position: relative;
+			top: 35%;
 			color: white;
 		}
 		#time{
@@ -49,33 +48,43 @@
 		#ampm{
 			font-size:300%;
 		}
-		.i:before{
+		#text,#form{
+			border: none;
+			width: 350px;
+			height: 22px;
+			position: relative;
+			margin: 0px;
 
 		}
-		.sub{
-			display: none;
-			padding: 0px;
-			width: 0px;
-			border: 0px;
-
+		.search-form{
+			display: inline-block;
+			height: 54px;
+			width: 400px;
 		}
+		.textcenter{
+			text-align: center;
+			position: relative;
+			top: 33%;
+		}
+		
 	</style>
 </head>
 <body>
 	<div class="bg-wrapper">
-		<div class="search-form">
-			<form name="" id="form">
-				<i class="icon-search"></i>
-				<input type="text" id="text" value="">
-				<!-- <input type="submit" id="sub" value=""> -->
-			</form>
+		<div class="textcenter">
+			<div class="search-form">
+				<form name="" id="form">
+					<input type="text" id="text" value="">
+					<!-- <input type="submit" id="sub" value=""> -->
+				</form>
+			</div>
 		</div>
 		<div class="center">
 			<div class="timer">
 				<h2 id="time"></h2>
 				<h1 id="ampm"></h1>
 			</div>
-				<h3 id="greeting"></h3>
+			<h3 id="greeting"></h3>
 		</div>	
 	</div>
 	<script>
