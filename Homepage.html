@@ -25,7 +25,7 @@
 			text-align: center;
 			width: 100%;
 			position: relative;
-			top: 35%;
+			top: 31%;
 			color: white;
 		}
 		#time{
@@ -48,23 +48,34 @@
 		#ampm{
 			font-size:300%;
 		}
-		#text,#form{
+		.underline{
+			position: absolute;
+			top: 55px;
+			border-bottom: 2px solid white;
+			width: 350px;
+		}
+		#text{
 			border: none;
+			padding: 10px 2px 10px 2px;
 			width: 350px;
 			height: 22px;
 			position: relative;
+			top:10px;
 			margin: 0px;
-
+			background-color: transparent;
+			font-size: 180%;
+			color: white;
+			outline: 0px;
 		}
-		.search-form{
+		.search-form,#form{
 			display: inline-block;
-			height: 54px;
+			height: 58px;
 			width: 400px;
 		}
 		.textcenter{
 			text-align: center;
 			position: relative;
-			top: 33%;
+			top: 31%;
 		}
 		
 	</style>
@@ -74,7 +85,8 @@
 		<div class="textcenter">
 			<div class="search-form">
 				<form name="" id="form">
-					<input type="text" id="text" value="">
+					<span class="underline"></span>
+					<input type="text" id="text" value="" autocomplete="off">
 					<!-- <input type="submit" id="sub" value=""> -->
 				</form>
 			</div>
